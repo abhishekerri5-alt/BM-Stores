@@ -23,15 +23,13 @@ function proceedPayment(){
     }
 
     var options = {
-        "key": "https://razorpay.me/@abhishekerri5151?amount=EPec5evqGoRk2C8icWNJlQ%3D%3D",
-        "amount": selectedProduct.price*100,
-        "currency": "INR",
-        "name": "BM Stores",
-        "description": selectedProduct.name,
-        "handler": function (response){
-            alert("Payment Successful!");
-            sendOrderEmail(name, phone, address, city, pincode, selectedProduct.name);
-        }
+key: "rzp_test_123456789",
+amount: 29900,
+currency: "INR",
+name: "BM Stores",
+description: "Test Payment"
+};
+       
     };
     var rzp = new Razorpay(options);
     rzp.open();
