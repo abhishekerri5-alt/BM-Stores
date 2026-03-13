@@ -38,7 +38,7 @@ function proceedPayment(){
 }
 
 function sendOrderEmail(name, phone, address, city, pincode, product){
-    emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
+    emailjs.send("service_ahys38q","template_cze7xtb",{
         customer_name:name,
         customer_phone:phone,
         customer_address:address,
