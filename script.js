@@ -23,7 +23,7 @@ function proceedPayment(){
     }
 
     var options = {
-        "key": "https://razorpay.me/@abhishekerri",
+        "key": "razorpay.me/@abhishekerri5151",
         "amount": selectedProduct.price*100,
         "currency": "INR",
         "name": "BM Stores",
