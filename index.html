@@ -2,63 +2,41 @@
 <html>
 <head>
 <title>BM Stores</title>
-<style>
-body{
-font-family: Arial;
-text-align:center;
-background:#f5f5f5;
-}
-
-.product{
-border:1px solid #ddd;
-padding:20px;
-margin:20px;
-background:white;
-display:inline-block;
-}
-
-button{
-background:black;
-color:white;
-padding:10px 20px;
-border:none;
-cursor:pointer;
-}
-</style>
+<link rel="stylesheet" href="style.css">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>emailjs.init("YOUR_EMAILJS_USER_ID");</script>
 </head>
-
 <body>
 
 <h1>BM Stores</h1>
-<p>Welcome to BM Stores</p>
+<p>Welcome to BM Stores! Shop the latest products.</p>
 
-<div class="product">
+<div class="product" id="product1">
+<img src="images/poster1.jpg" width="200">
 <h2>Aesthetic Poster</h2>
 <p>Price: ₹299</p>
-<button id="rzp-button1">Buy Now</button>
+<button onclick="buyProduct(1)">Buy Now</button>
 </div>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<div class="product" id="product2">
+<img src="images/kurta.jpg" width="200">
+<h2>Women Printed Kurta</h2>
+<p>Price: ₹799</p>
+<button onclick="buyProduct(2)">Buy Now</button>
+</div>
 
-<script>
-var options = {
-"key": "https://razorpay.me/@abhishekerri",
-"amount": "29900",
-"currency": "INR",
-"name": "BM Stores",
-"description": "Poster Purchase",
-"handler": function (response){
-alert("Payment Successful!");
-}
-};
+<!-- Delivery / Shipping Form -->
+<div id="shippingForm" style="display:none;">
+<h2>Delivery Address</h2>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="text" id="address" placeholder="Address" required>
+<input type="text" id="city" placeholder="City" required>
+<input type="text" id="pincode" placeholder="Pincode" required>
+<button onclick="proceedPayment()">Proceed to Payment</button>
+</div>
 
-var rzp1 = new Razorpay(options);
-
-document.getElementById('rzp-button1').onclick = function(e){
-rzp1.open();
-e.preventDefault();
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
